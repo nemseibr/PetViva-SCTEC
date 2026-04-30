@@ -112,11 +112,14 @@ index.html
 
 ---
 
-### 👶 Forma simples
+### Forma simples
 
-1. Baixa a pasta 📁
-2. Abre o arquivo **index.html**
-3. Pronto 🎉
+1. Faça o download da pasta 📁
+2. Crie uma nova pasta em sua área de trabalho
+3. Mova o arquivo para essa nova pasta
+4. Extraia todo o conteúdo do arquivo para essa nova pasta
+5. Navegue até o arquivo **index** e dê 2 cliques para abri-lo
+7. Pronto 🎉
 
 ---
 
