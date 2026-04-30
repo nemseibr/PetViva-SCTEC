@@ -141,9 +141,9 @@ class ProdutoPeso extends Produto {
 }
 
 const listaPromo = [
-  new ProdutoPeso("Ração Canina", 47.35, "/imgprodutos/imgsdog/racao1cao.png", 3),
-  new Produto("Vermífugo para gatos", 55.00, "/imgprodutos/imgsgato/vermifugoGato.png"),
-  new Produto("Aquário Curvo 45L", 1100.99, "/imgprodutos/imgpeixe/aquario.png"),
+  new ProdutoPeso("Ração Canina", 47.35, "imgprodutos/imgsdog/racao1cao.png", 3),
+  new Produto("Vermífugo para gatos", 55.00, "imgprodutos/imgsgato/vermifugoGato.png"),
+  new Produto("Aquário Curvo 45L", 1100.99, "imgprodutos/imgpeixe/aquario.png"),
 ];
 
 const produtos = [
