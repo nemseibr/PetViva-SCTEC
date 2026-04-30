@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pet Shop</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="container header-content">
+
+    <h1 style="display:none;">Pet Shop</h1>
+
+    <img src="/images/logo0.png" class="logo" alt="Logo do Pet Shop">
+
+    <div class="busca">
+      <input type="text" placeholder="Buscar produtos..." aria-label="Buscar produtos">
+      <button type="button">🔍Pesquisar</button>
+    </div>
+
+    <button class="sacola" id="btn-sacola" aria-label="Abrir sacola">
+      <img src="/images/compras.png" alt="Sacola de compras">
+      <span id="badge">0</span>
+    </button>
+
+  </div>
+</header>
+
+<!-- NAVBAR -->
+<nav class="navbar" aria-label="Menu principal">
+  <ul class="menu">
+
+    <li>Cachorro
+      <ul class="dropdown">
+        <li><button onclick="filtrarProdutos('cachorro','racao')">Ração</button></li>
+        <li><button onclick="filtrarProdutos('cachorro','farmacia')">Farmácia</button></li>
+        <li><button onclick="filtrarProdutos('cachorro','acessorios')">Acessórios</button></li>
+      </ul>
+    </li>
+
+    <li>Gato
+      <ul class="dropdown">
+        <li><button onclick="filtrarProdutos('gato','racao')">Ração</button></li>
+        <li><button onclick="filtrarProdutos('gato','farmacia')">Farmácia</button></li>
+        <li><button onclick="filtrarProdutos('gato','acessorios')">Acessórios</button></li>
+      </ul>
+    </li>
+
+    <li>Coelho
+      <ul class="dropdown">
+        <li><button onclick="filtrarProdutos('coelho','racao')">Ração</button></li>
+        <li><button onclick="filtrarProdutos('coelho','farmacia')">Farmácia</button></li>
+        <li><button onclick="filtrarProdutos('coelho','acessorios')">Acessórios</button></li>
+      </ul>
+    </li>
+
+    <li>Tartaruga
+      <ul class="dropdown">
+        <li><button onclick="filtrarProdutos('tartaruga','racao')">Ração</button></li>
+        <li><button onclick="filtrarProdutos('tartaruga','farmacia')">Farmácia</button></li>
+        <li><button onclick="filtrarProdutos('tartaruga','acessorios')">Acessórios</button></li>
+      </ul>
+    </li>
+
+    <li>Peixes
+      <ul class="dropdown">
+        <li><button onclick="filtrarProdutos('peixe','racao')">Ração</button></li>
+        <li><button onclick="filtrarProdutos('peixe','farmacia')">Farmácia</button></li>
+        <li><button onclick="filtrarProdutos('peixe','acessorios')">Acessórios</button></li>
+      </ul>
+    </li>
+
+    <li>Passarinho
+      <ul class="dropdown">
+        <li><button onclick="filtrarProdutos('passarinho','racao')">Ração</button></li>
+        <li><button onclick="filtrarProdutos('passarinho','farmacia')">Farmácia</button></li>
+        <li><button onclick="filtrarProdutos('passarinho','acessorios')">Acessórios</button></li>
+      </ul>
+    </li>
+
+  </ul>
+</nav>
+
+<main>
+
+<!-- SOBRE -->
+<section class="sobre container">
+  <img src="/images/logo2.png" class="sobre-img" alt="Logo institucional">
+
+  <div>
+    <h2>Quem Somos</h2>
+    <p>
+      Há mais de 35 anos, cuidamos de todos os tipos de pets com carinho, segurança e confiança. 
+      Nossa missão é promover bem-estar e saúde, sempre com atendimento responsável e acolhedor. 
+      Acreditamos no cuidado que vai além: 
+      parte de cada compra é destinada ao apoio de animais em situação de rua e à castração gratuita,
+      contribuindo para uma comunidade mais consciente e solidária.
+    </p>
+
+    <div class="indicadores">
+      <div><strong>35+</strong><span>Anos de mercado Pet</span></div>
+      <div><strong>10k+</strong><span>Pets Atendidos</span></div>
+      <div><strong>500+</strong><span>Adoções realizadas</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-texto">
+    <h2>Cuidado e amor para todos os pets 🐾</h2>
+    <p>Seu pet merece o melhor atendimento</p>
+  </div>
+</section>
+
+<!-- SERVIÇOS -->
+<section id="servicos" class="servicos container">
+  <h2>Nossos Serviços</h2>
+
+  <div class="cards">
+
+    <div class="card" data-servico="vet">
+      <img src="/images/vet.png" alt="Veterinário">
+      <h3>Veterinário</h3>
+    </div>
+
+    <div class="card" data-servico="leva">
+      <img src="/images/levaetraz.png" alt="Leva e Traz">
+      <h3>Leva e Traz</h3>
+    </div>
+
+    <div class="card" data-servico="adote">
+      <img src="/images/adotepet.png" alt="Adote um Pet">
+      <h3>Adote um Pet</h3>
+    </div>
+
+    <div class="card" data-servico="plano">
+      <img src="/images/planosaude.png" alt="Plano de Saúde">
+      <h3>Plano de Saúde</h3>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROMOÇÕES -->
+<section class="promocoes container">
+  <h2>Promoções da Semana</h2>
+  <div id="produtos"></div>
+</section>
+
+<!-- PRODUTOS -->
+<section class="produtos container" id="secao-produtos" aria-label="Lista de produtos">
+  <h2>Produtos</h2>
+  <div id="lista-produtos"></div>
+</section>
+
+<!-- CONTATO -->
+<section class="contato container">
+  <h2>Não encontrou o que procurava? Mande uma mensagem para nossa equipe!</h2>
+
+  <form id="form" novalidate>
+
+    <div class="grupo">
+      <label for="nome">Nome</label>
+      <input type="text" id="nome" placeholder="Seu nome completo">
+      <span class="erro" id="erro-nome">Informe seu nome (mínimo 2 letras)</span>
+    </div>
+
+    <div class="grupo">
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="seu@email.com">
+      <span class="erro" id="erro-email">Email inválido</span>
+    </div>
+
+    <div class="grupo">
+      <label for="msg">Mensagem</label>
+      <textarea id="msg" placeholder="Digite sua mensagem"></textarea>
+      <span class="erro" id="erro-msg">Mensagem deve ter pelo menos 5 caracteres</span>
+    </div>
+
+    <button type="submit" id="enviar" disabled>Enviar</button>
+
+    <p id="sucesso-form"></p>
+
+  </form>
+
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <img src="/images/logo0.png" class="footer-logo" alt="Logo do Pet Shop">
+  <p>Desenvolvido por Otávio Nascimento</p>
+</footer>
+
+<!-- MODAL -->
+<div id="modal" class="modal" role="dialog" aria-modal="true">
+  <div class="modal-box">
+
+    <button class="fechar" id="fechar" type="button">✕</button>
+
+    <h2 id="modal-titulo"></h2>
+    <p id="modal-texto"></p>
+
+    <a href="https://web.whatsapp.com/" target="_blank" class="btn-modal">
+      Contrate agora
+    </a>
+
+  </div>
+</div>
+
+<!-- SACOLA -->
+<div class="overlay" id="overlay">
+  <div class="sacola-box">
+    <h2>Minha Sacola</h2>
+    <button class="fechar" onclick="fecharSacola()" type="button">✕</button>
+    
+    <div id="lista-sacola"></div>
+    
+    <h3 id="total">Total: R$ 0,00</h3>
+    
+    <div class="form-compra">
+      <input type="text" id="cliente-nome" placeholder="Nome completo">
+      <input type="text" id="endereco" placeholder="Endereço completo">
+      
+      <select id="estado">
+        <option value="">Estado</option>
+        <option>SC</option>
+        <option>SP</option>
+        <option>RJ</option>
+        <option>RS</option>
+      </select>
+
+      <input type="text" id="cep" placeholder="CEP (8 dígitos)" maxlength="8">
+      
+      <button class="btn-finalizar" onclick="finalizarCompra()" disabled type="button">
+        Finalizar Pedido
+      </button>
+      
+      <p id="msg-compra"></p>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
