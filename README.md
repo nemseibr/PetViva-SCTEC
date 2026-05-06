@@ -152,7 +152,7 @@ Este projeto foi desenvolvido para:
 
 ---
 
-## 📸 Preview (opcional)
+## 📸 Preview
 
 <img width="1912" height="3903" alt="petshoppg" src="https://github.com/user-attachments/assets/2bf7e76f-8559-4b1d-90b7-b3ca6a691d59" />
 
